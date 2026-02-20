@@ -607,7 +607,8 @@ img {
    ================================================ */
 .apps-grid {
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: minmax(320px, 920px);
+    justify-content: center;
     gap: var(--space-md);
 }
 
@@ -632,7 +633,7 @@ img {
 
 .app-card-image {
     position: relative;
-    height: 200px;
+    height: 280px;
     overflow: hidden;
 }
 
@@ -1215,7 +1216,7 @@ img {
    ================================================ */
 @media (max-width: 1024px) {
     .apps-grid {
-        grid-template-columns: repeat(2, 1fr);
+        grid-template-columns: 1fr;
     }
 
     .websites-gallery-wrapper {
