@@ -987,6 +987,37 @@ img {
     font-size: 1.05rem;
 }
 
+.about-identity {
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: #9eddfb;
+    font-weight: 600;
+}
+
+.about-quick-hits {
+    margin-top: var(--space-md);
+    padding: var(--space-md);
+    border-radius: 16px;
+    border: 1px solid var(--border-subtle);
+    background: rgba(255, 255, 255, 0.02);
+}
+
+.about-quick-hits .about-skills-title {
+    margin-bottom: 0.75rem;
+    opacity: 1;
+    transform: none;
+}
+
+.about-quick-hits p {
+    margin-bottom: 0.55rem;
+    font-size: 1rem;
+}
+
+.about-quick-hits p strong {
+    color: var(--text-primary);
+}
+
 .about-bio em {
     color: var(--text-primary);
     font-style: italic;
