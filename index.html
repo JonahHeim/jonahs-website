@@ -35,7 +35,7 @@
             <a href="#websites" class="nav-link" data-section="websites">Websites</a>
             <a href="#writing" class="nav-link" data-section="writing">Writing</a>
             <a href="#about" class="nav-link" data-section="about">About</a>
-            <a href="#contact" class="nav-link nav-link--cta">Schedule Call</a>
+            <a href="" onclick="Calendly.initPopupWidget({url: 'https://calendly.com/jonahheim-dev/30min'});return false;" class="nav-link nav-link--cta">Schedule Call</a>
         </div>
         <button class="nav-menu-btn" id="navMenuBtn" aria-label="Toggle menu">
             <span></span>
@@ -49,7 +49,7 @@
         <a href="#websites" class="mobile-menu-link">Websites</a>
         <a href="#writing" class="mobile-menu-link">Writing</a>
         <a href="#about" class="mobile-menu-link">About</a>
-        <a href="#contact" class="mobile-menu-link">Schedule Call</a>
+        <a href="" onclick="Calendly.initPopupWidget({url: 'https://calendly.com/jonahheim-dev/30min'});return false;" class="mobile-menu-link">Schedule Call</a>
     </div>
 
     <!-- ======================== HERO ======================== -->
@@ -79,7 +79,7 @@
                 capture value through software, strategy, and execution.
             </p>
             <div class="hero-actions" data-animation="fade">
-                <a href="#contact" class="hero-btn hero-btn--primary">Schedule Consultation</a>
+                <a href="" onclick="Calendly.initPopupWidget({url: 'https://calendly.com/jonahheim-dev/30min'});return false;" class="hero-btn hero-btn--primary">Schedule Consultation</a>
                 <a href="mailto:jonahheim.dev@gmail.com" class="hero-btn hero-btn--secondary">Email to Hire</a>
             </div>
             <div class="hero-proof" data-animation="fade">
@@ -432,7 +432,7 @@
                 </p>
                 <a href="mailto:jonahheim.dev@gmail.com" class="contact-email"
                     data-animation="fade">jonahheim.dev@gmail.com</a>
-                <a href="mailto:jonahheim.dev@gmail.com?subject=Schedule%20Consultation" class="contact-schedule-btn"
+                <a href="" onclick="Calendly.initPopupWidget({url: 'https://calendly.com/jonahheim-dev/30min'});return false;" class="contact-schedule-btn"
                     data-animation="fade">Schedule Consultation</a>
                 <div class="contact-socials" data-animation="fade">
                     <a href="https://github.com/JonahHeim" target="_blank" rel="noopener noreferrer" class="social-link"
@@ -466,6 +466,10 @@
             <span>Built from scratch in HTML, CSS, and JS</span>
         </footer>
     </section>
+
+    <!-- Calendly Popup Widget -->
+    <link href="https://assets.calendly.com/assets/external/widget.css" rel="stylesheet">
+    <script src="https://assets.calendly.com/assets/external/widget.js" type="text/javascript" async></script>
 
     <!-- Scripts (CDN) -->
     <script src="https://cdn.jsdelivr.net/npm/lenis@1.1.18/dist/lenis.min.js"></script>
