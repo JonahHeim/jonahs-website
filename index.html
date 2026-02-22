@@ -356,16 +356,27 @@
                 <div class="section-line"></div>
             </div>
 
-            <div class="about-content">
-                <div class="about-bio" data-animation="fade">
-                    <p class="about-bio-lead">I operate with a broad skillset, quick learning, deep systems thinking,
-                        and AI
-                        fluency wired into execution.</p>
-                    <p>My specific knowledge sits at the intersection of software and business growth. I look at a
-                        company and see systems, bottlenecks, and opportunities that can be redesigned through product,
-                        automation, and positioning.</p>
-                    <p>I focus on shipping work that speaks for itself—clean code, clear strategy, and measurable
+                <div class="about-content">
+                    <div class="about-bio" data-animation="fade">
+                    <p class="about-bio-lead">Jonah Heim</p>
+                    <p>Strategist | Python Developer | Economics Enthusiast</p>
+                    <p>I am an 18-year-old strategist currently dual-enrolled at Washtenaw Community College, heading
+                        to a four-year university this fall. As the Vice President of my Business Club, I focus on the
+                        intersection of quantitative finance, economics, and scalable business systems.</p>
+                    <p>I do not just study growth. I help build it. I operate with a broad skillset, AI fluency, and
+                        a deep interest in systems thinking wired into execution. When I look at a company, I see more
+                        than a brand; I see systems, bottlenecks, and opportunities that can be redesigned through
+                        product, automation, and positioning. From developing Python-based models to providing
+                        freelance web development and marketing strategy for local businesses, I help brands turn logic
+                        into leverage.</p>
+                    <p>I focus on shipping work that speaks for itself: clean code, clear strategy, and measurable
                         growth.</p>
+                    <p><strong>The Quick Hits</strong></p>
+                    <p>The Hustle: Freelance strategist for local service businesses and landscaping companies.</p>
+                    <p>The Tech: Python, web development, and AI-driven automation.</p>
+                    <p>The Downtime: Avid snowboarder and guitar player (usually Zach Bryan).</p>
+                    <p>The Goal: Combining high-level economic thinking with technical execution to solve real-world
+                        problems.</p>
                 </div>
 
                 <div class="about-skills">
@@ -466,6 +477,31 @@
             <span>Built from scratch in HTML, CSS, and JS</span>
         </footer>
     </section>
+
+    <!-- ======================== PORTFOLIO AI CHAT ======================== -->
+    <button class="ai-chat-toggle" id="aiChatToggle" aria-expanded="false" aria-controls="aiChatPanel">
+        <span>Ask Jonah AI</span>
+    </button>
+
+    <aside class="ai-chat-panel" id="aiChatPanel" aria-hidden="true">
+        <div class="ai-chat-header">
+            <div>
+                <p class="ai-chat-title">Jonah AI</p>
+                <p class="ai-chat-subtitle">Answers from portfolio docs only</p>
+            </div>
+            <button class="ai-chat-close" id="aiChatClose" aria-label="Close AI chat">×</button>
+        </div>
+        <div class="ai-chat-messages" id="aiChatMessages">
+            <div class="ai-chat-message ai-chat-message--assistant">
+                Ask me about projects, writing, stack, and experience.
+            </div>
+        </div>
+        <form class="ai-chat-form" id="aiChatForm">
+            <label class="sr-only" for="aiChatInput">Message</label>
+            <input id="aiChatInput" type="text" maxlength="500" placeholder="Ask about my work..." required>
+            <button type="submit">Send</button>
+        </form>
+    </aside>
 
     <!-- Calendly Popup Widget -->
     <link href="https://assets.calendly.com/assets/external/widget.css" rel="stylesheet">

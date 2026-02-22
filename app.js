@@ -14,6 +14,7 @@ document.addEventListener('DOMContentLoaded', () => {
     initSectionAnimations();
     initHorizontalScroll();
     initMobileMenu();
+    initPortfolioAIChat();
 });
 
 // ======================== LENIS SMOOTH SCROLL ========================
@@ -452,6 +453,88 @@ function initHorizontalScroll() {
     // Pause on hover for easier reading/clicking.
     gallery.addEventListener('mouseenter', () => loopTween.pause());
     gallery.addEventListener('mouseleave', () => loopTween.resume());
+}
+
+// ======================== PORTFOLIO AI CHAT ========================
+
+function initPortfolioAIChat() {
+    const toggleBtn = document.getElementById('aiChatToggle');
+    const closeBtn = document.getElementById('aiChatClose');
+    const panel = document.getElementById('aiChatPanel');
+    const form = document.getElementById('aiChatForm');
+    const input = document.getElementById('aiChatInput');
+    const messages = document.getElementById('aiChatMessages');
+
+    if (!toggleBtn || !panel || !form || !input || !messages) return;
+
+    const apiBase = window.PORTFOLIO_AI_API_URL || 'http://localhost:8000';
+    let history = [];
+
+    const setPanelOpen = (isOpen) => {
+        panel.classList.toggle('is-open', isOpen);
+        panel.setAttribute('aria-hidden', String(!isOpen));
+        toggleBtn.setAttribute('aria-expanded', String(isOpen));
+        if (isOpen) input.focus();
+    };
+
+    const addMessage = (role, content) => {
+        const bubble = document.createElement('div');
+        bubble.className = `ai-chat-message ai-chat-message--${role}`;
+        bubble.textContent = content;
+        messages.appendChild(bubble);
+        messages.scrollTop = messages.scrollHeight;
+    };
+
+    const setPending = (isPending) => {
+        form.classList.toggle('is-loading', isPending);
+        input.disabled = isPending;
+    };
+
+    toggleBtn.addEventListener('click', () => {
+        const isOpen = panel.classList.contains('is-open');
+        setPanelOpen(!isOpen);
+    });
+
+    if (closeBtn) {
+        closeBtn.addEventListener('click', () => setPanelOpen(false));
+    }
+
+    form.addEventListener('submit', async (event) => {
+        event.preventDefault();
+        const question = input.value.trim();
+        if (!question) return;
+
+        addMessage('user', question);
+        history.push({ role: 'user', content: question });
+        input.value = '';
+        setPending(true);
+
+        try {
+            const response = await fetch(`${apiBase}/api/chat`, {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({
+                    question,
+                    history: history.slice(-8),
+                }),
+            });
+
+            if (!response.ok) {
+                throw new Error(`Request failed: ${response.status}`);
+            }
+
+            const data = await response.json();
+            const answer = data.answer || 'I could not generate an answer.';
+            addMessage('assistant', answer);
+            history.push({ role: 'assistant', content: answer });
+        } catch (error) {
+            addMessage('assistant', 'I cannot reach the AI service right now. Please try again in a moment.');
+            console.error(error);
+        } finally {
+            setPending(false);
+            input.focus();
+        }
+    });
 }
 
 // ======================== UTILITY: Refresh on Resize ========================
